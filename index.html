@@ -1,267 +1,515 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Caliuq · VTuber</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <div class="sky" aria-hidden="true">
-    <span class="bubble b1"></span>
-    <span class="bubble b2"></span>
-    <span class="bubble b3"></span>
-    <span class="bubble b4"></span>
-    <span class="spark s1">✦</span>
-    <span class="spark s2">♡</span>
-    <span class="spark s3">✧</span>
-    <span class="spark s4">❀</span>
-    <span class="spark s5">♡</span>
-  </div>
+:root {
+  --pink: #ffd6e8;
+  --blush: #ffb7d5;
+  --rose: #e989b4;
+  --deep: #c45c8a;
+  --cream: #fff8fb;
+  --ink: #5c3a4a;
+  --lavender: #efe4ff;
+  --mint: #e7fff4;
+  --shadow: 0 18px 40px rgba(196, 92, 138, 0.16);
+}
 
-  <header class="nav">
-    <a class="logo" href="#inicio">pétalo<span>♡</span></a>
-    <nav>
-      <a href="#sobre-mi">Sobre mí</a>
-      <a href="#horario">Horario</a>
-      <a href="#lore">Lore del Santuario</a>
-      <a href="#links">Links</a>
-    </nav>
-  </header>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-  <main>
-    <section class="hero" id="inicio">
-      <div class="hero-card">
-        <p class="badge">Cherry pink</p>
-        <h1>Holi, soy <em>Cali</em></h1>
-        <p class="tagline"> una vtuber cozy, que le gusta el caos suave y streams dulces como el azúcar.</p>
-        <p class="intro">
-          Bienvenida a mi jardincito digital. Aquí hay glitter, té tibio,
-          lore bonito y un chat que se siente como una familia feliz.
-        </p>
-        <div class="actions">
-          <a class="btn primary" href="#links">ven a decir hola</a>
-          <a class="btn ghost" href="#horario">ver horario</a>
-        </div>
-        <ul class="pills">
-          <li>just chatting</li>
-          <li>gaming</li>
-          <li>streaming nights</li>
-          <li>fanart</li>
-        </ul>
-      </div>
-      <div class="portrait" aria-hidden="true">
-        <div class="ring"></div>
-        <div class="face">
-          <span class="petal">✿</span>
-          <p>modelo<br>va aquí</p>
-        </div>
-        <span class="float-heart">♡</span>
-      </div>
-    </section>
+html {
+  scroll-behavior: smooth;
+}
 
-  <section class="panel" id="sobre-mi">
-  <h2>Sobre mí</h2>
-  <p class="lead">Un poco de azúcar, un poco de caos.</p>
+body {
+  font-family: "Nunito", system-ui, sans-serif;
+  color: var(--ink);
+  background:
+    radial-gradient(circle at 12% 10%, #fff 0 80px, transparent 81px),
+    radial-gradient(circle at 88% 18%, #ffe4f1 0 120px, transparent 121px),
+    radial-gradient(circle at 70% 90%, #f3e9ff 0 160px, transparent 161px),
+    linear-gradient(180deg, #fff5fa 0%, #ffe8f3 45%, #f7f0ff 100%);
+  min-height: 100vh;
+  line-height: 1.6;
+}
 
-  <div class="about-grid">
-    <article class="card">
-      <span class="icon">🌸</span>
-      <h3>¿Quién soy?</h3>
-      <p>¡Soy Cali! Vivo en el santuario, entre plantitas y cosas rosadas, fluffy y suavecitas. Si entraste al stream, ya eres invitado: este rinconcito es para quedarse, hablar bajito y pasarla lindo [...]</p>
-    </article>
+.sky {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
 
-    <article class="card">
-      <span class="icon">🎀</span>
-      <h3>Streams</h3>
-      <p>Juego de todo un poquito. A veces me pongo mode tryhard en Valorant y las rankeds me hacen sufrir bonito. Otras veces me escondo en juegos cozy: Minecraft, Stardew Valley y Heartopia. Últimame[...]</p>
-    </article>
-  </div>
+.bubble {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #fff, var(--pink) 60%, transparent 70%);
+  opacity: 0.7;
+  animation: float 9s ease-in-out infinite;
+}
 
-  <div class="rules-panel">
-    <div class="rules-header">
-      <span class="icon">💌</span>
-      <h3>Reglas del chat</h3>
-    </div>
+.b1 { width: 90px; height: 90px; left: 6%; top: 20%; }
+.b2 { width: 50px; height: 50px; right: 10%; top: 30%; animation-delay: -2s; }
+.b3 { width: 70px; height: 70px; left: 18%; bottom: 12%; animation-delay: -4s; }
+.b4 { width: 36px; height: 36px; right: 22%; bottom: 20%; animation-delay: -1s; }
 
-    <div class="rules-grid">
-      <article class="banner">
-        <span>♡</span>
-        <div>
-          <strong>Sé amable y gentil</strong>
-          <p>Este es un espacio cozy y seguro. Nada de hate, insultos, discriminación o comentarios negativos.</p>
-        </div>
-      </article>
+.spark {
+  position: absolute;
+  color: var(--rose);
+  font-size: 1.2rem;
+  animation: twinkle 3.4s ease-in-out infinite;
+}
 
-      <article class="banner">
-        <span>☁️</span>
-        <div>
-          <strong>Respeta el vibe softie</strong>
-          <p>Evita lenguaje fuerte, groserías o temas muy pesados. Aquí hablamos con cariño.</p>
-        </div>
-      </article>
+.s1 { top: 14%; left: 28%; }
+.s2 { top: 22%; right: 18%; animation-delay: -1s; }
+.s3 { bottom: 24%; left: 12%; animation-delay: -2s; }
+.s4 { top: 48%; right: 8%; }
+.s5 { bottom: 16%; right: 30%; animation-delay: -1.5s; }
 
-      <article class="banner">
-        <span>✨</span>
-        <div>
-          <strong>No spam ni flood</strong>
-          <p>Nada de repetir mensajes, CAPS excesivas o ráfagas de emotes. Un mensajito bonito a la vez.</p>
-        </div>
-      </article>
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-16px); }
+}
 
-      <article class="banner">
-        <span>🚫</span>
-        <div>
-          <strong>Sin autopromoción</strong>
-          <p>No compartas links de otros canales, Discord o redes sin pedir permiso primero.</p>
-        </div>
-      </article>
+@keyframes twinkle {
+  0%, 100% { opacity: 0.35; transform: scale(0.9); }
+  50% { opacity: 1; transform: scale(1.15); }
+}
 
-      <article class="banner">
-        <span>🎮</span>
-        <div>
-          <strong>No backseat gaming</strong>
-          <p>Si quieres dar tips en Valorant, pregúntame primero. En los juegos cozy sí puedes opinar más libre.</p>
-        </div>
-      </article>
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
 
-      <article class="banner">
-        <span>🤫</span>
-        <div>
-          <strong>Sin spoilers</strong>
-          <p>Si estamos en una historia, nada de spoilear.</p>
-        </div>
-      </article>
+.nav, main, footer {
+  position: relative;
+  z-index: 1;
+}
 
-      <article class="banner">
-        <span>💬</span>
-        <div>
-          <strong>Chat en español</strong>
-          <p>Si quieres escribir en otro idioma, avísame primero con un mensajito suave.</p>
-        </div>
-      </article>
+.nav {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 22px 20px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
 
-      <article class="banner">
-        <span>🌷</span>
-        <div>
-          <strong>Escucha a los mods</strong>
-          <p>Ellos cuidan el ambiente cozy. Sus palabras son como un abrazo con reglas.</p>
-        </div>
-      </article>
+.logo {
+  font-family: "Quicksand", sans-serif;
+  font-weight: 700;
+  font-size: 1.4rem;
+  color: var(--deep);
+  text-decoration: none;
+  letter-spacing: 0.04em;
+}
 
-      <article class="banner">
-        <span>🍓</span>
-        <div>
-          <strong>Trae buena energía</strong>
-          <p>Este es un rinconcito para relajarnos y pasarla lindo. Tu buena vibra es bienvenida.</p>
-        </div>
-      </article>
-    </div>
-  </div>
-</section>
-    
-    <section class="panel soft" id="horario">
-      <h2>♡Horario♡</h2>
-      <p class="lead">Hora de Chile. Puede moverse, pero aviso por FB o IG.</p>
-      <div class="schedule">
-        <div class="day">
-          <strong>Viernes</strong>
-          <span>22:00</span>
-          <em>Nuevos juegos</em>
-        </div>
-        <div class="day">
-          <strong>Sábado</strong>
-          <span>22:00</span>
-          <em>Valorant</em>
-        </div>
-        <div class="day">
-          <strong>Domingo</strong>
-          <span>22:00</span>
-          <em>Just chatting</em>
-        </div>
-        <div class="day off">
-          <strong>Lunes a jueves</strong>
-          <span>descanso</span>
-          <em>Buscame en mis otras redes.</em>
-        </div>
-      </div>
-    </section>
+.logo span { color: var(--rose); }
 
-    <section class="panel" id="lore">
-      <h2>♡El Santuario♡</h2>
-      <p class="lead">Personajes que viven en el mismo universo.</p>
-      <div class="grid three">
-        <article class="card character">
-          <span class="avatar">C</span>
-          <h3>Cali</h3>
-          <p>La anfitriona. Pétalos, risas y un poco de drama doméstico adorable.</p>
-        </article>
-        <article class="card character">
-          <span class="avatar alt">L</span>
-          <h3>Eido</h3>
-          <p>La IA de Cali, que poco a poco toma ya forma. Aún en desarrollo.</p>
-        </article>
-        <article class="card character">
-          <span class="avatar mint">S</span>
-          <h3>Kitten</h3>
-          <p>La chispa del chat. Apariciones cortas, caos garantizado. Bot en discord, únete en los enlaces de abajo.</p>
-        </article>
-      </div>
-    </section>
+.nav nav {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
 
-    <section class="panel links" id="links">
-      <h2>♡Encuéntrame♡</h2>
-      <section class="panel links" id="links">
-        <p class="lead">Hewwooo, pequeñit@ visitante del Santuario~! ₍ᐢ. .ᐢ₎♡ Si quieres acompañar a Cali fuera de Discord, aquí están mis rinconcitos.</p>
+.nav a {
+  color: var(--ink);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.95rem;
+}
 
-  <div class="socials">
-    <article class="social">
-      <div>
-        <strong>Instagram · @caliuqvtuber</strong>
-        <p>Mi rinconcito oficial como VTuber y creadora chikita ♡ Arte, comisiones, outfits, updates y fotitos rositas. ૮ ˶ᵔ ᵕ ᵔ˶ ა</p>
-      </div>
-<a href="https://www.instagram.com/caliuqvtuber" target="_blank" rel="noopener">insta ♡</a>
-    </article>
+.nav nav a:hover { color: var(--deep); }
 
-    <article class="social">
-      <div>
-        <strong>Facebook · Caliuq</strong>
-        <p>El rinconcito del arte y las comisiones ♡ Dibujitos, encargos y novedades de lo que voy creando. (˶˃ ᵕ ˂˶)</p>
-      </div>
-<a href="https://www.facebook.com/caliuq.galdames.cornejo" target="_blank" rel="noopener">face ♡</a>
-    </article>
+main {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 0 20px 40px;
+}
 
-    <article class="social">
-      <div>
-        <strong>Twitch · Caliuq</strong>
-        <p>Donde Cali se pone los audífonos y prende directo ♡ Jueguitos, charlitas, caos y un ratito juntitos. (˶˃𐃷˂˶)</p>
-      </div>
-<a href="https://www.twitch.tv/caliuq" target="_blank" rel="noopener">twitch ♡</a>
-    </article>
+.hero {
+  display: grid;
+  grid-template-columns: 1.3fr 0.8fr;
+  gap: 28px;
+  align-items: center;
+  padding: 30px 0 10px;
+}
 
-    <article class="social">
-      <div>
-        <strong>YouTube · Cali</strong>
-        <p>Los directos que se quedan guardaditos, para verlos despacito cuando el santuario ya se apagó. ♡</p>
-      </div>
-<a href="https://www.youtube.com/@Calivtuber" target="_blank" rel="noopener">youtube ♡</a>
-    </article>
+.hero-card,
+.panel,
+.card,
+.day,
+.portrait,
+.social,
+.rules-panel {
+  background: rgba(255, 255, 255, 0.72);
+  border: 2px solid rgba(255, 183, 213, 0.7);
+  border-radius: 28px;
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(6px);
+}
 
-    <article class="social">
-      <div>
-        <strong>TikTok · @.caliuq</strong>
-        <p>Pedacitos chiquitos que no alcanzan a llegar al directo~ Clips, momentos random y cositas cute. ₍^. .^₎⟆</p>
-      </div>
-<a href="https://www.tiktok.com/@.caliuq" target="_blank" rel="noopener">tiktok ♡</a>
-    </article>
-  </div>
-</section>
+.hero-card {
+  padding: 36px 34px;
+}
 
-  <footer>
-    <p>Hecho con ♡ para el jardín de Caliuq</p>
-  </footer>
-</body>
-</html>
+.badge {
+  display: inline-block;
+  background: var(--lavender);
+  color: #7a5b9a;
+  border-radius: 999px;
+  padding: 6px 12px;
+  font-size: 0.82rem;
+  font-weight: 800;
+  margin-bottom: 12px;
+}
+
+h1 {
+  font-family: "Quicksand", sans-serif;
+  font-size: clamp(2.2rem, 5vw, 3.6rem);
+  line-height: 1.05;
+  color: #8a3d62;
+}
+
+h1 em {
+  font-style: normal;
+  color: var(--deep);
+}
+
+.tagline {
+  margin-top: 8px;
+  font-weight: 800;
+  color: var(--rose);
+}
+
+.intro {
+  margin: 14px 0 20px;
+  max-width: 46ch;
+}
+
+.actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  text-decoration: none;
+  border-radius: 999px;
+  padding: 12px 18px;
+  font-weight: 800;
+  transition: transform 0.2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn.primary {
+  background: linear-gradient(180deg, #ffb7d5, #e989b4);
+  color: white;
+}
+
+.btn.ghost {
+  background: white;
+  color: var(--deep);
+  border: 2px solid var(--blush);
+}
+
+.pills {
+  list-style: none;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 18px;
+}
+
+.pills li {
+  background: var(--cream);
+  border-radius: 999px;
+  padding: 6px 12px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  border: 1px solid var(--pink);
+}
+
+.portrait {
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  position: relative;
+  background: radial-gradient(circle at 50% 40%, #fff, #ffd6e8 70%);
+}
+
+.ring {
+  position: absolute;
+  inset: 18px;
+  border-radius: 50%;
+  border: 3px dashed var(--blush);
+  animation: spin 22s linear infinite;
+}
+
+.face {
+  text-align: center;
+  font-weight: 800;
+  color: var(--deep);
+}
+
+.petal {
+  display: block;
+  font-size: 3rem;
+}
+
+.float-heart {
+  position: absolute;
+  right: 18px;
+  top: 18px;
+  color: var(--rose);
+  font-size: 1.6rem;
+  animation: float 4s ease-in-out infinite;
+}
+
+.panel {
+  margin-top: 18px;
+  padding: 32px 28px;
+}
+
+.panel.soft {
+  background: rgba(255, 248, 251, 0.8);
+}
+
+h2 {
+  font-family: "Quicksand", sans-serif;
+  font-size: 2rem;
+  color: #8a3d62;
+}
+
+.lead {
+  margin: 4px 0 18px;
+  color: #8d6174;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.grid.three {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  row-gap: 20px;
+  align-items: start;
+}
+
+.card {
+  padding: 20px;
+  border-radius: 24px;
+}
+
+.card h3 {
+  margin: 8px 0 6px;
+  font-family: "Quicksand", sans-serif;
+}
+
+.icon {
+  font-size: 1.5rem;
+}
+
+.rules-panel {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(173, 118, 149, 0.15);
+  box-shadow: 0 14px 28px rgba(137, 86, 110, 0.08);
+}
+
+.rules-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.rules-header h3 {
+  margin: 0;
+  font-size: 1.4rem;
+  color: var(--deep);
+}
+
+.rules-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.banner {
+  display: grid;
+  grid-template-columns: 42px 1fr;
+  gap: 12px;
+  align-items: center;
+  padding: 14px 16px;
+  border-radius: 18px;
+  background: linear-gradient(90deg, #ffe4f1, #fff 42%);
+  border: 2px solid rgba(255, 183, 213, 0.85);
+}
+
+.banner > span {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border-radius: 14px;
+  background: white;
+  font-size: 1.15rem;
+}
+
+.banner strong {
+  display: block;
+  color: #8a3d62;
+}
+
+.banner p {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.schedule {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.day {
+  padding: 16px;
+  text-align: center;
+}
+
+.day strong {
+  display: block;
+  text-transform: lowercase;
+}
+
+.day span {
+  display: block;
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: var(--deep);
+}
+
+.day em {
+  font-style: normal;
+  font-size: 0.9rem;
+}
+
+.day.off {
+  opacity: 0.75;
+}
+
+.character .avatar {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: var(--pink);
+  color: var(--deep);
+  font-weight: 800;
+}
+
+.avatar.alt { background: #ffe0b8; }
+.avatar.mint { background: var(--mint); }
+
+.socials {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 12px;
+}
+
+.social {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 16px;
+  border-radius: 18px;
+  background: linear-gradient(90deg, #ffe4f1, #fff 46%);
+  border: 2px solid rgba(255, 183, 213, 0.85);
+}
+
+.social-copy {
+  flex: 1;
+}
+
+.social strong {
+  display: block;
+  color: #8a3d62;
+}
+
+.social p {
+  margin: 2px 0 0;
+  font-size: 0.95rem;
+}
+
+.social a {
+  flex: none;
+  text-decoration: none;
+  background: white;
+  color: #c45c8a;
+  border: 2px solid #ffb7d5;
+  border-radius: 999px;
+  padding: 8px 14px;
+  font-weight: 800;
+}
+
+.social a:hover {
+  background: var(--pink);
+}
+
+footer {
+  text-align: center;
+  padding: 10px 20px 36px;
+  color: #8d6174;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 900px) {
+  .hero {
+    grid-template-columns: 1fr;
+  }
+
+  .grid.three,
+  .schedule,
+  .rules-grid,
+  .about-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .nav {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .hero,
+  .grid.three,
+  .schedule,
+  .rules-grid,
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .portrait {
+    max-width: 280px;
+    margin: 0 auto;
+  }
+
+  .social {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
