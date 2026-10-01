@@ -279,8 +279,33 @@ code { background: white; padding: 2px 6px; border-radius: 8px; }
 .banner strong { display: block; color: #8a3d62; }
 .banner p { margin: 0; font-size: 0.95rem; }
 
+.socials { display: grid; gap: 10px; }
+.social {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 16px;
+  border-radius: 18px;
+  background: linear-gradient(90deg, #ffe4f1, #fff 46%);
+  border: 2px solid rgba(255, 183, 213, 0.85);
+}
+.social strong { display: block; color: #8a3d62; }
+.social p { margin: 2px 0 0; font-size: 0.95rem; }
+.social a {
+  flex: none;
+  text-decoration: none;
+  background: white;
+  color: #c45c8a;
+  border: 2px solid #ffb7d5;
+  border-radius: 999px;
+  padding: 8px 14px;
+  font-weight: 800;
+}
+
 @media (max-width: 600px) {
   .hero, .grid.three, .schedule { grid-template-columns: 1fr; }
   .nav { flex-direction: column; align-items: flex-start; }
   .portrait { max-width: 280px; }
+  .social { flex-direction: column; align-items: flex-start; }
 }
