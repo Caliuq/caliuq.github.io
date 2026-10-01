@@ -242,6 +242,41 @@ footer {
 }
 code { background: white; padding: 2px 6px; border-radius: 8px; }
 
+.grid.two {
+  grid-template-columns: 1fr 1fr;
+}
+
+.rules {
+  margin-top: 14px;
+  display: grid;
+  gap: 10px;
+}
+.rules h3 {
+  font-family: "Quicksand", sans-serif;
+  font-size: 1.35rem;
+}
+.banner {
+  display: grid;
+  grid-template-columns: 42px 1fr;
+  gap: 12px;
+  align-items: center;
+  padding: 14px 16px;
+  border-radius: 18px;
+  background: linear-gradient(90deg, #ffe4f1, #fff 42%);
+  border: 2px solid rgba(255, 183, 213, 0.85);
+}
+.banner > span {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border-radius: 14px;
+  background: white;
+  font-size: 1.15rem;
+}
+.banner strong { display: block; color: #8a3d62; }
+.banner p { margin: 0; font-size: 0.95rem; }
+
 @media (max-width: 800px) {
   .hero, .grid.three, .schedule { grid-template-columns: 1fr; }
   .nav { flex-direction: column; align-items: flex-start; }
