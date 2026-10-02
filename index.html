@@ -238,6 +238,26 @@ como hago que "quien soy, streams y reglas" sean distintos grillas?
 </section>
   <footer>
     <p>Hecho con ♡ para el Santuario de Caliuq</p>
+    <section class="panel" id="galeria">
+  <h2>♡ Galería ♡</h2>
+  <p class="lead">Fanart, outfits y cositas del santuario.</p>
+  <div class="galeria" id="galeria-grid"></div>
+</section>
+
+<script>
+  const fotos = [
+    { src: "cali.png", alt: "Cali" },
+    { src: "outfit.png", alt: "Outfit de Cali" }
+  ];
+
+  const grid = document.getElementById("galeria-grid");
+  fotos.forEach(function (foto) {
+    const img = document.createElement("img");
+    img.src = foto.src;
+    img.alt = foto.alt;
+    grid.appendChild(img);
+  });
+</script>
   </footer>
 </body>
 </html>
